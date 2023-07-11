@@ -8,22 +8,36 @@
     <title>The Expedition: An Interactive Story for Children</title>
 </head>
 <body>
+    <div class="grid-container">
+      <div class="column" id="element-4">
+        <img src="images/HTC_Heritage Library_Coniferous ForestElement 4.png">
+        <div id="droptarget"></div>
+      </div>
+      <div class="column" id="element-3">
+        <img src="images/HTC_Heritage Library_Coniferous ForestElement 3.png">
+      </div>
+      <div class="column" id="element-6">
+        <img src="images/HTC_Heritage Library_Coniferous ForestElement 6.png">
+      </div>
+    </div>
+  
     <p class="append">While you are exploring deep in a coniferous forest 
-    you come across many <span class="move">pine cones</span>.
+    you come across many <span draggable="true" id="dragtarget">pine cones</span>.
     </p>
-    <div class="target"></div>
+    <!--<div id="droptarget"></div>-->
 
-    <!--Test-->
-<h1>Draggable DIV Element</h1>
 
-<p>Click and hold the mouse button down while moving the DIV element</p>
 
-<div id="mydiv">
-  <div id="mydivheader">Click here to move</div>
-  <p>Move</p>
-  <p>this</p>
-  <p>DIV</p>
-</div>
+    <!--Test
+      
+      <p>Use the addEventListener() method to attach a "dragstart" and "drag" event to a p element, and a "dragover" and "drop" event to a div element.</p>
+      
+      <p draggable="true" id="dragtarget">Drag me into the rectangle!</p>
+      
+      <div id="droptarget"></div>
+      
+      <p id="demo"></p>
+    -->
 
 <script src="script.js"></script>
 </body>
