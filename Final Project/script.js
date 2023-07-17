@@ -7,7 +7,7 @@ console.log("Hello World");
 
 var counter = 0;
 
-//put all your id's into their own array manually and then looped through that
+//put all your id's into their own array manually and then loop through that
 
 /*drag.addEventListener("mouseover", function(){
     if(counter == 0){
@@ -70,11 +70,117 @@ function turnPage(){
   window.location = "index" + pagenumber + ".html";
 }
 
+/*function getVoices() {
+  let voices = speechSynthesis.getVoices();
+  if(!voices.length){
+    let utterance = new SpeechSynthesisUtterance("");
+    speechSynthesis.speak(utterance);
+    voices = speechSynthesis.getVoices();
+  }
+  return voices;
+}*/
+
+/*drop.addEventListener("drop", function() {
+
+//Reading the book out loud
+const message = new SpeechSynthesisUtterance(); 
+
+// set the text to be spoken 
+message.text = "Hello World!"; 
+
+// create an instance of the speech synthesis object 
+const speechSynthesis = window.speechSynthesis; 
+
+const voices = getVoices();
+message.voice = voices[42];
+message.rate = 0.6;
+
+// start speaking 
+speechSynthesis.speak(message)
+});*/
+
+//const voices = window.speechSynthesis.getVoices();
+//console.log(voices);
+
+//voices.SpeechSynthesisVoice[42];
+
+/*function getVoices() {
+  let voices = window.speechSynthesis.getVoices();
+  if(!voices.length){
+    // some time the voice will not be initialized so we can call spaek with empty string
+    // this will initialize the voices 
+    let utterance = new SpeechSynthesisUtterance("");
+    speechSynthesis.speak(utterance);
+    voices = window.speechSynthesis.getVoices();
+    console.log(voices);
+  }
+  console.log(voices);
+  return voices;
+}*/
+
+const speech = window.speechSynthesis;
+if(speech.onvoiceschanged !== undefined)
+{
+
+	speech.onvoiceschanged = () => populateVoiceList();
+
+}
+function populateVoiceList()
+{
+	const voices = speech.getVoices(); // now should have an array of all voices
+  console.log(voices);
+}
 
 
 
+/*drop.addEventListener("drop", function() {
+
+function getVoices() {
+  let voices = speechSynthesis.getVoices();
+  if(!voices.length){
+    // some time the voice will not be initialized so we can call speakk with an empty string
+    // this will initialize the voices 
+    let utterance = new SpeechSynthesisUtterance("");
+    speechSynthesis.speak(utterance);
+    voices = speechSynthesis.getVoices();
+    console.log(voices.length)
+  }
+  return voices;
+}
 
 
+function speak(text, voice, rate, pitch, volume) {
+  // create a SpeechSynthesisUtterance to configure the how text to be spoken 
+  let speakData = new SpeechSynthesisUtterance();
+  speakData.volume = volume; // From 0 to 1
+  speakData.rate = rate; // From 0.1 to 10
+  speakData.pitch = pitch; // From 0 to 2
+  speakData.text = text;
+  speakData.lang = 'en';
+  speakData.voice = voice;
+  
+  // pass the SpeechSynthesisUtterance to speechSynthesis.speak to start speaking 
+  speechSynthesis.speak(speakData);
+}
 
 
+if ('speechSynthesis' in window) {
+
+  let voice = getVoices();
+  let rate = 1, pitch = 0, volume = 1;
+  let text = "Pine cone";
+
+  speak(text, voice[2], rate, pitch, volume);
+
+  /*setTimeout(()=>{ // speak after 2 seconds 
+    rate = 0.5; pitch = 1.5, volume = 0.5;
+    text = " Speaking with volume = 0.5 rate = 0.5 pitch = 1.5 ";
+    speak(text, voices[10], rate, pitch, volume );
+  }, 2000);
+  console.log(voice.length)
+}else{
+  console.log(' Speech Synthesis Not Supported '); 
+}
+
+});*/
 
